@@ -160,6 +160,24 @@
     padding: 96px 0 72px;
     border-bottom: 1px solid var(--line);
   }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero-media {
+    border: 1px solid var(--line-strong);
+    background: var(--surface);
+    padding: 10px;
+  }
+  .hero-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1344 / 768;
+    object-fit: cover;
+  }
   .hero .eyebrow {
     display: flex;
     align-items: center;
@@ -355,17 +373,22 @@
   }
   .port-card {
     background: var(--surface);
-    padding: 32px 28px;
+    padding: 0 0 28px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 14px;
   }
-  .port-card .glyph {
-    width: 40px;
-    height: 40px;
-    color: var(--accent);
+  .port-card .port-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-bottom: 1px solid var(--line);
   }
-  .port-card .glyph svg { width: 100%; height: 100%; }
+  .port-card .tag, .port-card h3, .port-card p.desc, .port-card .examples {
+    margin-left: 28px;
+    margin-right: 28px;
+  }
   .port-card .tag {
     font-family: "IBM Plex Mono", monospace;
     font-size: 11px;
@@ -655,6 +678,8 @@
     .about-grid { grid-template-columns: 1fr; }
     .biz-item { grid-template-columns: 40px 1fr; }
     .biz-item p { grid-column: 2; margin-top: 8px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero-media { order: -1; }
     .why-grid { grid-template-columns: 1fr; }
     .port-grid { grid-template-columns: 1fr; }
     .policy-grid { grid-template-columns: 1fr; }
@@ -799,22 +824,27 @@
 
 <main>
   <section class="hero">
-    <div class="wrap">
-      <div class="eyebrow">Application Software Development</div>
-      <h1>찾고 있던 그 시스템,<br><em>저희가 직접 만듭니다.</em></h1>
-      <p class="lede">
-        내가찾던디자인은 업무 프로세스 효율화, 서류 전자화, 물류·유통 정보 관리를 중심으로
-        기업 현장에 꼭 맞는 응용 소프트웨어를 기획부터 개발, 유지관리까지 책임지는
-        맞춤형 소프트웨어 개발사입니다.
-      </p>
-      <div class="cta-row">
-        <a class="btn primary" href="#contact">프로젝트 상담하기</a>
-        <a class="btn ghost" href="#business">사업분야 보기</a>
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <div class="eyebrow">Application Software Development</div>
+        <h1>찾고 있던 그 시스템,<br><em>저희가 직접 만듭니다.</em></h1>
+        <p class="lede">
+          내가찾던디자인은 업무 프로세스 효율화, 서류 전자화, 물류·유통 정보 관리를 중심으로
+          기업 현장에 꼭 맞는 응용 소프트웨어를 기획부터 개발, 유지관리까지 책임지는
+          맞춤형 소프트웨어 개발사입니다.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#contact">프로젝트 상담하기</a>
+          <a class="btn ghost" href="#business">사업분야 보기</a>
+        </div>
+        <div class="hero-meta">
+          <div><span class="num">5</span><span class="label">핵심 개발 분야</span></div>
+          <div><span class="num">100%</span><span class="label">맞춤형 자체 개발</span></div>
+          <div><span class="num">월간</span><span class="label">정기 유지관리</span></div>
+        </div>
       </div>
-      <div class="hero-meta">
-        <div><span class="num">5</span><span class="label">핵심 개발 분야</span></div>
-        <div><span class="num">100%</span><span class="label">맞춤형 자체 개발</span></div>
-        <div><span class="num">월간</span><span class="label">정기 유지관리</span></div>
+      <div class="hero-media">
+        <img src="images/hero.jpg" alt="정돈된 문서와 데이터를 상징하는 추상 3D 일러스트" width="1344" height="768" loading="eager">
       </div>
     </div>
   </section>
@@ -907,7 +937,7 @@
       </div>
       <div class="port-grid">
         <div class="port-card">
-          <div class="glyph"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="32" height="32"/><line x1="4" y1="14" x2="36" y2="14"/><line x1="4" y1="24" x2="36" y2="24"/><line x1="14" y1="4" x2="14" y2="36"/><line x1="25" y1="4" x2="25" y2="36"/></svg></div>
+          <img class="port-image" src="images/port-excel.jpg" alt="엑셀 자동화를 상징하는 추상 3D 일러스트" loading="lazy">
           <p class="tag">EXCEL AUTOMATION</p>
           <h3>엑셀 업무 자동화</h3>
           <p class="desc">송장·견적서·정산 내역처럼 반복되는 문서 업무를 매크로와 스크립트로 자동화해 수작업 시간을 줄여드립니다.</p>
@@ -918,7 +948,7 @@
           </ul>
         </div>
         <div class="port-card">
-          <div class="glyph"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 4 34 12 34 28 20 36 6 28 6 12Z"/><path d="M20 4 20 20 34 12"/><path d="M20 20 6 12"/><path d="M20 20 20 36"/></svg></div>
+          <img class="port-image" src="images/port-3d.jpg" alt="3D 모델링 플러그인 개발을 상징하는 추상 3D 일러스트" loading="lazy">
           <p class="tag">3D PLUGIN DEVELOPMENT</p>
           <h3>3D 소프트웨어 플러그인 개발</h3>
           <p class="desc">3D 모델링·CAD 툴 안에서 반복되는 작업을 단축하는 전용 플러그인을 설계하고 개발합니다.</p>
@@ -929,7 +959,7 @@
           </ul>
         </div>
         <div class="port-card">
-          <div class="glyph"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="32" height="24" rx="1"/><line x1="4" y1="15" x2="36" y2="15"/><circle cx="9" cy="11.5" r="1" fill="currentColor" stroke="none"/><circle cx="13" cy="11.5" r="1" fill="currentColor" stroke="none"/></svg></div>
+          <img class="port-image" src="images/port-web.jpg" alt="홈페이지 개발을 상징하는 추상 3D 일러스트" loading="lazy">
           <p class="tag">WEBSITE DEVELOPMENT</p>
           <h3>홈페이지 개발</h3>
           <p class="desc">회사 소개, 제품 소개, 상담·예약 접수까지 목적에 맞는 홈페이지를 기획부터 구축까지 진행합니다.</p>
@@ -940,7 +970,7 @@
           </ul>
         </div>
         <div class="port-card">
-          <div class="glyph"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 14a12 12 0 0 1 20-6l4 4"/><path d="M32 8v10H22"/><path d="M32 26a12 12 0 0 1-20 6l-4-4"/><path d="M8 32V22h10"/></svg></div>
+          <img class="port-image" src="images/port-automation.jpg" alt="업무 자동화를 상징하는 추상 3D 일러스트" loading="lazy">
           <p class="tag">WORKFLOW AUTOMATION</p>
           <h3>회사·개인 업무 자동화</h3>
           <p class="desc">회사 단위의 반복 업무부터 개인의 소소한 작업까지, 규모에 맞는 자동화 도구를 만들어 드립니다.</p>
