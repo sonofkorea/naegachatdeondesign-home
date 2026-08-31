@@ -172,42 +172,32 @@
 
   /* ---------- Hero ---------- */
   .hero {
-    position: relative;
-    padding: 0 0 72px;
+    padding-bottom: 72px;
     border-bottom: 1px solid var(--line);
-    min-height: 720px;
-    display: flex;
-    align-items: flex-end;
+  }
+  .hero-visual {
+    width: 100%;
+    aspect-ratio: 21 / 8;
     overflow: hidden;
+    background: var(--surface);
+    opacity: 0;
+    animation: hero-visual-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-  .hero-bg img {
+  .hero-visual img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 12%;
+    object-position: 50% 22%;
   }
-  .hero-bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg,
-      transparent 0%,
-      transparent 34%,
-      color-mix(in srgb, var(--bg) 55%, transparent) 52%,
-      var(--bg) 68%,
-      var(--bg) 100%);
+  @keyframes hero-visual-in {
+    from { opacity: 0; transform: scale(1.03); }
+    to { opacity: 1; transform: scale(1); }
   }
   .hero-content {
-    position: relative;
-    z-index: 1;
     max-width: 680px;
     margin: 0 auto;
+    padding-top: 64px;
     text-align: center;
   }
   .hero .eyebrow, .hero .cta-row, .hero-meta { justify-content: center; }
@@ -227,6 +217,7 @@
   .hero-content .hero-meta { animation-delay: 0.44s; }
   @media (prefers-reduced-motion: reduce) {
     .hero-content > * { animation: none; opacity: 1; }
+    .hero-visual { animation: none; opacity: 1; }
   }
   .hero h1 { max-width: none; }
   .hero .lede { margin-left: auto; margin-right: auto; }
@@ -240,7 +231,6 @@
     text-transform: uppercase;
     color: var(--accent-warm);
     margin-bottom: 22px;
-    text-shadow: 0 0 4px var(--bg), 0 0 12px var(--bg), 0 0 24px var(--bg);
   }
   .hero .eyebrow::before {
     content: "";
@@ -254,7 +244,6 @@
     letter-spacing: -0.015em;
     max-width: 15ch;
     text-wrap: balance;
-    text-shadow: 0 0 6px var(--bg), 0 0 16px var(--bg), 0 0 32px var(--bg), 0 0 48px var(--bg);
   }
   .hero h1 em {
     font-style: normal;
@@ -265,7 +254,6 @@
     max-width: 56ch;
     font-size: 17px;
     color: var(--ink-soft);
-    text-shadow: 0 0 4px var(--bg), 0 0 12px var(--bg), 0 0 24px var(--bg);
   }
   .hero .cta-row {
     margin-top: 36px;
@@ -761,9 +749,9 @@
     .about-grid { grid-template-columns: 1fr; }
     .biz-item { grid-template-columns: 40px 1fr; }
     .biz-item p { grid-column: 2; margin-top: 8px; }
-    .hero { min-height: 560px; }
-    .hero-bg img { object-position: 50% 10%; }
-    .hero-content { max-width: none; }
+    .hero-visual { aspect-ratio: 4 / 3; }
+    .hero-visual img { object-position: 50% 14%; }
+    .hero-content { max-width: none; padding-top: 40px; }
     .why-grid { grid-template-columns: 1fr; }
     .port-grid { grid-template-columns: 1fr; }
     .policy-grid { grid-template-columns: 1fr; }
@@ -919,7 +907,7 @@
 
 <main>
   <section class="hero">
-    <div class="hero-bg">
+    <div class="hero-visual">
       <img src="images/hero.jpg" alt="화이트 셔츠와 네이비 정장을 입은 두 전문가가 함께 서 있는 모습" width="1600" height="1066" loading="eager">
     </div>
     <div class="wrap">
