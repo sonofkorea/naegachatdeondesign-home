@@ -212,6 +212,7 @@
     text-transform: uppercase;
     color: var(--accent-warm);
     margin-bottom: 22px;
+    text-shadow: 0 0 4px var(--bg), 0 0 12px var(--bg), 0 0 24px var(--bg);
   }
   .hero .eyebrow::before {
     content: "";
@@ -223,6 +224,7 @@
     font-size: clamp(34px, 5vw, 54px);
     line-height: 1.2;
     max-width: 15ch;
+    text-shadow: 0 0 6px var(--bg), 0 0 16px var(--bg), 0 0 32px var(--bg), 0 0 48px var(--bg);
   }
   .hero h1 em {
     font-style: normal;
@@ -233,6 +235,7 @@
     max-width: 56ch;
     font-size: 17px;
     color: var(--ink-soft);
+    text-shadow: 0 0 4px var(--bg), 0 0 12px var(--bg), 0 0 24px var(--bg);
   }
   .hero .cta-row {
     margin-top: 36px;
@@ -640,6 +643,17 @@
     font-size: 13.5px;
   }
   .contact-fields div { display: flex; flex-direction: column; gap: 5px; }
+  .contact-photo {
+    border: 1px solid var(--panel-line);
+    margin-bottom: 4px;
+  }
+  .contact-photo img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 50% 15%;
+  }
   .contact-fields .k {
     font-family: "IBM Plex Mono", monospace;
     font-size: 11px;
@@ -1144,6 +1158,9 @@
           </div>
         </div>
         <div class="contact-fields">
+          <div class="contact-photo">
+            <img src="images/contact-bg.jpg" alt="태블릿으로 업무 자동화 현황을 확인하는 전문가" loading="lazy">
+          </div>
           <div><span class="k">Email</span><span class="v">emosa@naver.com</span></div>
           <div><span class="k">Tel</span><span class="v">010-9469-1180</span></div>
         </div>
