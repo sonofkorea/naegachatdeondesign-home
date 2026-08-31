@@ -162,11 +162,11 @@
   /* ---------- Hero ---------- */
   .hero {
     position: relative;
-    padding: 96px 0 72px;
+    padding: 0 0 72px;
     border-bottom: 1px solid var(--line);
-    min-height: 600px;
+    min-height: 720px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     overflow: hidden;
   }
   .hero-bg {
@@ -179,24 +179,29 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 62% 22%;
+    object-position: 50% 12%;
   }
   .hero-bg::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(100deg,
-      var(--bg) 0%,
-      var(--bg) 40%,
-      color-mix(in srgb, var(--bg) 62%, transparent) 58%,
-      color-mix(in srgb, var(--bg) 18%, transparent) 76%,
-      transparent 92%);
+    background: linear-gradient(180deg,
+      transparent 0%,
+      transparent 34%,
+      color-mix(in srgb, var(--bg) 55%, transparent) 52%,
+      var(--bg) 68%,
+      var(--bg) 100%);
   }
   .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 620px;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
   }
+  .hero .eyebrow, .hero .cta-row, .hero-meta { justify-content: center; }
+  .hero h1 { max-width: none; }
+  .hero .lede { margin-left: auto; margin-right: auto; }
   .hero .eyebrow {
     display: flex;
     align-items: center;
@@ -600,8 +605,6 @@
 
   /* ---------- Contact ---------- */
   .contact-panel {
-    position: relative;
-    overflow: hidden;
     background: var(--panel-bg);
     color: var(--panel-fg);
     padding: 56px 48px;
@@ -609,30 +612,6 @@
     grid-template-columns: 1.2fr 1fr;
     gap: 40px;
   }
-  .contact-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-  .contact-bg img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 66% 22%;
-  }
-  .contact-bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg,
-      var(--panel-bg) 0%,
-      var(--panel-bg) 46%,
-      color-mix(in srgb, var(--panel-bg) 62%, transparent) 66%,
-      color-mix(in srgb, var(--panel-bg) 22%, transparent) 84%,
-      transparent 100%);
-  }
-  .contact-copy, .contact-fields { position: relative; z-index: 1; }
   .contact-panel h2 {
     color: var(--panel-fg);
     font-size: clamp(24px, 3vw, 30px);
@@ -731,15 +710,8 @@
     .about-grid { grid-template-columns: 1fr; }
     .biz-item { grid-template-columns: 40px 1fr; }
     .biz-item p { grid-column: 2; margin-top: 8px; }
-    .hero { min-height: 520px; padding-top: 200px; }
-    .hero-bg img { object-position: 55% 18%; }
-    .hero-bg::after {
-      background: linear-gradient(180deg,
-        transparent 0%,
-        color-mix(in srgb, var(--bg) 55%, transparent) 34%,
-        var(--bg) 56%,
-        var(--bg) 100%);
-    }
+    .hero { min-height: 560px; }
+    .hero-bg img { object-position: 50% 10%; }
     .hero-content { max-width: none; }
     .why-grid { grid-template-columns: 1fr; }
     .port-grid { grid-template-columns: 1fr; }
@@ -748,15 +720,6 @@
     .process-row { grid-template-columns: 1fr; row-gap: 28px; }
     .process-row::before { display: none; }
     .contact-panel { grid-template-columns: 1fr; padding: 40px 24px; }
-    .contact-bg img { object-position: 62% 18%; }
-    .contact-bg::after {
-      background: linear-gradient(180deg,
-        var(--panel-bg) 0%,
-        var(--panel-bg) 58%,
-        color-mix(in srgb, var(--panel-bg) 55%, transparent) 78%,
-        color-mix(in srgb, var(--panel-bg) 15%, transparent) 92%,
-        transparent 100%);
-    }
     .contact-fields { border-left: none; padding-left: 0; border-top: 1px solid var(--panel-line); padding-top: 24px; }
     .hero-meta { grid-template-columns: repeat(3, auto); gap: 20px; }
   }
@@ -1172,9 +1135,6 @@
   <section id="contact" style="border-bottom: none; padding-bottom: 0;">
     <div class="wrap">
       <div class="contact-panel">
-        <div class="contact-bg">
-          <img src="images/contact-bg.jpg" alt="태블릿으로 업무 자동화 현황을 확인하는 전문가" loading="lazy">
-        </div>
         <div class="contact-copy">
           <h2>필요한 시스템을<br>함께 정리해 드립니다.</h2>
           <p class="lede">업무 프로세스, 서류 관리, 물류 유통 중 어떤 영역이든 좋습니다. 현재 겪고 있는 어려움을 알려주시면 견적과 개발 방향을 안내해 드립니다.</p>
