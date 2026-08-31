@@ -159,28 +159,41 @@
 
   /* ---------- Hero ---------- */
   .hero {
+    position: relative;
     padding: 96px 0 72px;
     border-bottom: 1px solid var(--line);
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 56px;
+    min-height: 600px;
+    display: flex;
     align-items: center;
+    overflow: hidden;
   }
-  .hero-grid > * { min-width: 0; }
-  .hero-media {
-    border: 1px solid var(--line-strong);
-    background: var(--surface);
-    padding: 10px;
-    min-width: 0;
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
   }
-  .hero-media img {
+  .hero-bg img {
     display: block;
     width: 100%;
-    height: auto;
-    aspect-ratio: 1600 / 1066;
+    height: 100%;
     object-fit: cover;
+    object-position: 82% 22%;
+  }
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg,
+      var(--bg) 0%,
+      var(--bg) 40%,
+      color-mix(in srgb, var(--bg) 62%, transparent) 58%,
+      color-mix(in srgb, var(--bg) 18%, transparent) 76%,
+      transparent 92%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
   }
   .hero .eyebrow {
     display: flex;
@@ -685,8 +698,16 @@
     .about-grid { grid-template-columns: 1fr; }
     .biz-item { grid-template-columns: 40px 1fr; }
     .biz-item p { grid-column: 2; margin-top: 8px; }
-    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
-    .hero-media { order: -1; }
+    .hero { min-height: 520px; padding-top: 200px; }
+    .hero-bg img { object-position: 68% 20%; }
+    .hero-bg::after {
+      background: linear-gradient(180deg,
+        transparent 0%,
+        color-mix(in srgb, var(--bg) 55%, transparent) 34%,
+        var(--bg) 56%,
+        var(--bg) 100%);
+    }
+    .hero-content { max-width: none; }
     .why-grid { grid-template-columns: 1fr; }
     .port-grid { grid-template-columns: 1fr; }
     .policy-grid { grid-template-columns: 1fr; }
@@ -831,8 +852,11 @@
 
 <main>
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-text">
+    <div class="hero-bg">
+      <img src="images/hero.jpg" alt="화이트 셔츠와 네이비 정장을 입은 두 전문가가 함께 서 있는 모습" width="1600" height="1066" loading="eager">
+    </div>
+    <div class="wrap">
+      <div class="hero-content">
         <div class="eyebrow">Application Software Development</div>
         <h1>찾고 있던 그 시스템,<br><em>저희가 직접 만듭니다.</em></h1>
         <p class="lede">
@@ -849,9 +873,6 @@
           <div><span class="num">100%</span><span class="label">맞춤형 자체 개발</span></div>
           <div><span class="num">월간</span><span class="label">정기 유지관리</span></div>
         </div>
-      </div>
-      <div class="hero-media">
-        <img src="images/hero.jpg" alt="화이트 셔츠와 네이비 정장을 입은 두 전문가가 함께 서 있는 모습" width="1600" height="1066" loading="eager">
       </div>
     </div>
   </section>
