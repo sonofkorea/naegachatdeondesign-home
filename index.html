@@ -22,6 +22,10 @@
     --line: #CFC9B9;
     --line-strong: #ABA492;
     --shadow: rgba(28, 35, 31, 0.08);
+    --panel-bg: #1C231F;
+    --panel-fg: #EDEAE2;
+    --panel-fg-soft: rgba(237, 234, 226, 0.7);
+    --panel-line: rgba(237, 234, 226, 0.25);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -598,8 +602,8 @@
   .contact-panel {
     position: relative;
     overflow: hidden;
-    background: var(--ink);
-    color: var(--bg);
+    background: var(--panel-bg);
+    color: var(--panel-fg);
     padding: 56px 48px;
     display: grid;
     grid-template-columns: 1.2fr 1fr;
@@ -622,21 +626,21 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(120deg,
-      var(--ink) 0%,
-      var(--ink) 46%,
-      color-mix(in srgb, var(--ink) 62%, transparent) 66%,
-      color-mix(in srgb, var(--ink) 22%, transparent) 84%,
+      var(--panel-bg) 0%,
+      var(--panel-bg) 46%,
+      color-mix(in srgb, var(--panel-bg) 62%, transparent) 66%,
+      color-mix(in srgb, var(--panel-bg) 22%, transparent) 84%,
       transparent 100%);
   }
   .contact-copy, .contact-fields { position: relative; z-index: 1; }
   .contact-panel h2 {
-    color: var(--bg);
+    color: var(--panel-fg);
     font-size: clamp(24px, 3vw, 30px);
     max-width: 16ch;
   }
   .contact-panel .lede {
     margin-top: 16px;
-    color: color-mix(in srgb, var(--bg) 70%, transparent);
+    color: var(--panel-fg-soft);
     font-size: 14.5px;
     max-width: 44ch;
   }
@@ -644,13 +648,12 @@
   .contact-panel .btn.primary {
     background: var(--accent);
     border-color: var(--accent);
-    color: var(--ink);
+    color: var(--panel-bg);
   }
   .contact-panel .btn.primary:hover { background: var(--accent-warm); border-color: var(--accent-warm); }
-  .btn.ghost.on-dark { border-color: var(--bg); color: var(--bg); }
+  .btn.ghost.on-dark { border-color: var(--panel-fg); color: var(--panel-fg); }
   .btn.ghost.on-dark:hover, .btn.ghost.on-dark:focus-visible { border-color: var(--accent-warm); color: var(--accent-warm); }
   .contact-fields {
-    border-left: 1px solid color-mix(in srgb, var(--bg) 25%, transparent);
     padding-left: 40px;
     display: flex;
     flex-direction: column;
@@ -663,9 +666,9 @@
     font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: color-mix(in srgb, var(--bg) 55%, transparent);
+    color: var(--panel-fg-soft);
   }
-  .contact-fields .v { color: var(--bg); }
+  .contact-fields .v { color: var(--panel-fg); }
   .placeholder { color: var(--accent-warm); font-style: normal; }
 
   /* ---------- Footer ---------- */
@@ -748,13 +751,13 @@
     .contact-bg img { object-position: 62% 18%; }
     .contact-bg::after {
       background: linear-gradient(180deg,
-        var(--ink) 0%,
-        var(--ink) 58%,
-        color-mix(in srgb, var(--ink) 55%, transparent) 78%,
-        color-mix(in srgb, var(--ink) 15%, transparent) 92%,
+        var(--panel-bg) 0%,
+        var(--panel-bg) 58%,
+        color-mix(in srgb, var(--panel-bg) 55%, transparent) 78%,
+        color-mix(in srgb, var(--panel-bg) 15%, transparent) 92%,
         transparent 100%);
     }
-    .contact-fields { border-left: none; padding-left: 0; border-top: 1px solid color-mix(in srgb, var(--bg) 25%, transparent); padding-top: 24px; }
+    .contact-fields { border-left: none; padding-left: 0; border-top: 1px solid var(--panel-line); padding-top: 24px; }
     .hero-meta { grid-template-columns: repeat(3, auto); gap: 20px; }
   }
 
